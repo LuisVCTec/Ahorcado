@@ -1,0 +1,53 @@
+.container{
+    background-color: rgb(231, 137, 137);
+    height: 100%;
+
+
+    display: flex;          
+    /* Abarca una sola linea completa de BLOQUE: flex || inline-flex */
+    flex-direction: row;      
+    /* Define el eje principal (main axis) row = x y column = y */
+    /*  Por defecto: row | row-reverse | column | column-reverse */
+    flex-wrap: nowrap;
+    /* Por defecto esta en nowrap, o sea que no los envuelva: nowrap | wrap | wrap-reverse     */ 
+    flex-flow: row nowrap;        
+    /*   Es un atajo reducido para evitar escribir flex-direction y flex-wrap   */
+    justify-content: flex-start; 
+    /* ------ Define la alinación de los elementos hijos, respecto del eje principal -- main axis ---- */
+    /* flex-start | center | flex-end | space-between | space-around | space-envenly */
+    align-items: stretch ;
+    /* Funciona para aliniar a los hijos del eje transversal "cross axis" 
+    main(row) = x, cross(column) = y, or main(column) = y, cross(row) = x   */
+    /* Por defecto: stretch | flex-start | flex-end | center | baseline  */
+    align-content: flex-start;
+    /* Funciona la alineacion de los hijos en el eje transversal "cross axis", NO FUNCIONA
+    cuando los hijos estan en una sola linea (Cuaando flex-wrap: nowrap NO FUNCIONA) */
+    /* flex-start | center | flex-end | space-between | space-around | space-envenly */
+    
+}
+
+.item{
+    background-color: #666;
+    border: medium solid #999;
+    flex-grow: 1;
+    /* Cuando la caja flexbox tenga un espacio sobrante, es la habilidad o el factor de crecer
+    Valor por defecto es 0, NO ADMITE VALORES NEGATIVOS */
+    flex-shrink: 1;
+    /* Cuando la caja flexbox NO tenga espacios sobrantes, es la habilidad o el factor de encogerse
+    Valor por defecto es 1 NO ADMITE VALORES NEGATIVOS */
+    flex-basis: auto;
+    /* Es el tamaño de los elementos del hijo dentro de la linea de la caja de flexbox
+        Si la caja flexbox tiene dirección fila, flex-basis representará el width
+        Si la caja flexbox tiene direccion columna, flex-basis representará el height
+        Valor por defecto auto */
+    flex: 0 1 auto;
+    /* Es un atajo reducido de flex-grow, flex-shrink y flex-basis */
+    order: 0;
+    /* order representará que tendrán los elemntos hijos en la caja de flexbox
+        Valor por defecto = 0
+        Se aceptan valores positivos y negativos
+        Un valor menor siempre irá antes que un valor mayor */
+    align-self: stretch;
+    /* strech | flex-start | flex-end | center | baseline */
+    /* Sobreescribe el valor de las propiedades aling-items solo para el elmento hijo especificado */
+}
